@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Moonlit Psychic Readings</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#100b20;color:#f8edff;font-family:Georgia,serif;text-align:center}
+header{padding:35px 15px;background:linear-gradient(135deg,#261344,#100b20)}
+h1{font-size:36px;color:#e5c5ff;margin:10px}
+p{line-height:1.6}
+main{max-width:600px;margin:auto;padding:22px}
+.card{background:#211536;border:1px solid #8e65aa;border-radius:18px;padding:22px;margin:20px 0}
+input,select,textarea{display:block;width:100%;padding:13px;margin:12px 0;border-radius:8px;border:1px solid #9d7cba;font-size:16px}
+button,.pay{display:block;width:100%;padding:14px;margin:12px 0;border:0;border-radius:9px;background:#c9a3f4;color:#21102f;font-size:16px;font-weight:bold;text-decoration:none}
+.price{font-size:30px;color:#e5c5ff}
+.small{font-size:13px;color:#c8b8d6}
+</style>
+</head>
+<body>
+<header>
+<div>☾ ✨ ☽</div>
+<h1>Moonlit</h1>
+<p>Psychic Readings & Spiritual Guidance</p>
+<p>Discover the messages your intuition is seeking.</p>
+</header>
+<main>
+<section class="card">
+<h2>✨ Your Personal Reading</h2>
+<p>Take a quiet moment, focus on your question, and choose the guidance you seek.</p>
+<form id="readingForm">
+<input id="name" placeholder="Your first name" required>
+<select id="focus" required>
+<option value="">Choose your reading</option>
+<option>Love & Relationships</option>
+<option>Career & Money</option>
+<option>Life Path</option>
+<option>Spiritual Guidance</option>
+</select>
+<textarea id="question" rows="4" placeholder="What question is on your heart?" required></textarea>
+<button type="submit">Reveal My Reading</button>
+</form>
+</section>
+<section class="card" id="payment" hidden>
+<h2>Your Reading Is Ready</h2>
+<p id="greeting"></p>
+<p>Unlock your full personalized reading.</p>
+<div class="price">$29.99</div>
+<p>One-time payment</p>
+<button type="button" onclick="alert('PayPal checkout is not connected yet. Set up a real payment link before accepting payments.')">Pay with PayPal</button>
+<button type="button" onclick="alert('Venmo payment is not connected yet. Add your real Venmo payment link before accepting payments.')">Pay with Venmo</button>
+<button type="button" onclick="alert('Card checkout is not connected yet. Connect a secure payment provider before accepting payments.')">Credit or Debit Card</button>
+<p class="small">Payment options are examples only. No payment is processed by this demo.</p>
+</section>
+<section class="card">
+<h2>About Moonlit</h2>
+<p>A peaceful space for reflection, symbolic insight, and personal discovery. Readings are for entertainment and self-reflection and do not replace professional advice.</p>
+</section>
+</main>
+<script>
+document.getElementById('readingForm').addEventListener('submit',function(e){
+e.preventDefault();
+const name=document.getElementById('name').value.trim();
+const focus=document.getElementById('focus').value;
+const question=document.getElementById('question').value.trim();
+document.getElementById('greeting').textContent='Thank you, '+name+'. Your '+focus+' reading is prepared for your question: "'+question+'".';
+document.getElementById('payment').hidden=false;
+document.getElementById('payment').scrollIntoView({behavior:'smooth'});
+});
+</script>
+</body>
+</html>
